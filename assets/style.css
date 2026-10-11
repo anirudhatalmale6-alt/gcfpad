@@ -110,6 +110,13 @@ p{max-width:64ch}
   width:100%;max-width:1480px;margin:0 auto;padding:0 var(--gut)}
 
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:0 0 auto}
+/* ⚠️ The real logo is portrait, about 2:3 - height only, width follows.
+   Forcing it square squashes the tree. */
+/* 52px in a 76px bar. His logo is detailed - a tree, a globe and sixty
+   flags - and at 42px it collapsed into a smudge. This is as large as
+   the bar allows while keeping air above and below. */
+.brand .mark{height:52px;width:auto;flex:0 0 auto;display:block}
+.foot .brand .mark{height:66px}
 .brand svg{width:36px;height:36px;flex:0 0 auto}
 .brand-txt{display:flex;flex-direction:column;line-height:1}
 .brand-txt .b1{font-family:var(--serif);font-size:1.32rem;letter-spacing:.01em}

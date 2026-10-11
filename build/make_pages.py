@@ -23,19 +23,24 @@ NAV = [("Home", "index.html"), ("About", "about.html"),
        ("Contact", "contact.html")]
 
 ORG = "Global Confederation for Promotion and Development"
+# 🔑 The registered name on his logo artwork carries ", INC." - used where
+# the legal entity is meant, not the display name.
+ORG_LEGAL = "Global Confederation for Promotion and Development, Inc."
 TAG = "Connecting Opportunities. Empowering Communities. Building Sustainable Futures."
 
-# The mark: two offsetting arcs that close into a sphere - a confederation
-# reading as a globe. Drawn, not downloaded, so it scales and has no licence.
-MARK = (
-    '<svg viewBox="0 0 40 40" fill="none" aria-hidden="true">'
-    '<circle class="mark-ring" cx="20" cy="20" r="18.4" stroke="#0E3B4A" stroke-width="1.3"/>'
-    '<path d="M20 1.6c5 5.6 7.6 11.7 7.6 18.4S25 32.8 20 38.4" stroke="#C8702A" stroke-width="1.5"/>'
-    '<path d="M20 1.6c-5 5.6-7.6 11.7-7.6 18.4S15 32.8 20 38.4" stroke="#C8702A"'
-    ' stroke-width="1.5" stroke-opacity=".45"/>'
-    '<path d="M2.4 13.6h35.2M2.4 26.4h35.2" stroke="#0E3B4A" stroke-width="1.1" stroke-opacity=".5"/>'
-    '</svg>')
-
+# 🔑 HIS REAL LOGO, which arrived 11 Oct: a tree growing out of a globe of
+# world flags with Haiti at the centre. It replaces the mark I drew as a
+# placeholder.
+#
+# ⚠️ The white background was removed by flood-filling inward FROM THE EDGES
+# only. A global "every white pixel becomes transparent" would have punched
+# holes straight through the flags, most of which contain white. Checked on
+# the navy header and on white - no box, flags intact.
+#
+# ⚠️ It is portrait (roughly 2:3), not square like the old mark, so the CSS
+# sets a height and lets the width follow. Forcing it square would squash it.
+MARK = ('<img class="mark" src="assets/img/logo.png" alt="" aria-hidden="true" '
+        'width="512" height="779">')
 
 def icon(name):
     """Line icons, 24x24, drawn here so the site loads no icon font."""
@@ -131,7 +136,7 @@ FOOT = f"""
       </div>
     </div>
     <div class="foot-bot">
-      <div>&copy; <span id="yr">2026</span> {ORG}. All Rights Reserved.</div>
+      <div>&copy; <span id="yr">2026</span> {ORG_LEGAL} All Rights Reserved.</div>
       <ul>
         <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="terms.html">Terms</a></li>
@@ -155,7 +160,8 @@ def page(fname, title, desc, body, current=None):
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0B1F2A">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
